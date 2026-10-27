@@ -1,0 +1,30 @@
+cd backend
+python -m venv .venv
+source .venv/bin/activate          # Windows: .venv\Scripts\activate
+pip install -r requirements.txt
+cp .env.example .env               # Windows: copy .env.example .env
+
+
+
+mysql -u root -p
+
+CREATE DATABASE workforce_ai
+CHARACTER SET utf8mb4
+COLLATE utf8mb4_unicode_ci;
+
+SHOW DATABASES;
+EXIT;
+
+
+cd C:\Users\tejth\Desktop\workforce-ai-pro\backend
+.\.venv\Scripts\Activate.ps1
+python -m uvicorn app.main:app --reload --host 127.0.0.1 --port 8010
+
+
+cd frontend
+npm install
+npm run dev
+
+
+http://localhost:5174/
+http://127.0.0.1:8010/docs

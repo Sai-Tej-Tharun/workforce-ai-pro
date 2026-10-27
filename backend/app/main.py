@@ -28,6 +28,13 @@ app = FastAPI(
     description="HR Attrition Prediction & Workforce Intelligence Platform. JWT auth (Bearer) + RBAC: ADMIN, HR, MANAGER, EMPLOYEE.",
     version="1.0.0", lifespan=lifespan,
 )
+@app.get("/")
+def root():
+    return {
+        "message": "WorkForce AI Pro API is running",
+        "status": "healthy",
+        "docs": "/docs"
+    }
 app.add_middleware(GZipMiddleware, minimum_size=1024)
 app.add_middleware(CORSMiddleware, allow_origins=settings.CORS_ORIGINS, allow_credentials=True,
                    allow_methods=["*"], allow_headers=["*"])
